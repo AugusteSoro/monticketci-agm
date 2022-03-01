@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Loggers>
+        <!-- _____________________ CONSOLE LOGGER _____________________ -->
+        <Root>
+                <AppenderRef ref="Console-Appender" />
+        </Root>
+
+        <!-- SPRING main logger -->
+        <Logger name="org.springframework.web" level="trace"  additivity="false">
+                <AppenderRef ref="SpringBoot-Appender"  level="trace" />
+                <AppenderRef ref="Console-Appender"  level="on" />
+        </Logger>
+
+        <!-- Application yolin  Main logger -->
+        <Logger name="com.ngser" level="trace" additivity="false">
+                <AppenderRef ref="App-Appender" level="trace" />
+                <AppenderRef ref="Console-Appender"  level="on" />
+        </Logger>
+        
+
+</Loggers>

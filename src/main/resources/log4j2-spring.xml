@@ -1,0 +1,13 @@
+<?xml  version='1.0'?>
+<configuration xmlns:xi="http://www.w3.org/2001/XInclude"
+        name="yolin" monitorInterval="10">
+        <properties>
+                <Property name="logPath">/var/opt/wizard/monticket/log</Property>
+                <Property name="appName">monticket</Property>
+                <Property name="ngserPath">/var/opt/wizard/monticket</Property>
+        </properties>
+
+        <ThresholdFilter level="trace" />
+        <xi:include href="log4j2-appenders.xml" />
+        <xi:include href="log4j2-loggers.xml" />
+</configuration>

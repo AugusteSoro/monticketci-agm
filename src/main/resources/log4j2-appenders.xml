@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appenders>
+
+        <!-- _____________________ SYSTEM AND APP CONSOLE APENDER _____________________ -->
+
+
+        <Console name="Console-Appender" target="SYSTEM_OUT">
+                <PatternLayout>
+                        <pattern>
+                                [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+                        </pattern>
+                </PatternLayout>
+        </Console>
+
+          <!-- com.ngser Angular File appender configuration   --> 
+          
+         <!--<File name="Angular-Appender" fileName="${angularPath}/snedaims_log.log">
+                <PatternLayout>
+                       <pattern>
+                                [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+                       </pattern>
+                </PatternLayout>
+        </File>	 -->
+        
+        <!-- SPRING BOOT RollingFile configuration -->
+        
+        <RollingFile name="SpringBoot-Appender" fileName="${logPath}/${appName}_sys.log"
+                filePattern="${logPath}/${appName}_sys.%d{yyyy-MM-dd}-%i.log">
+                <PatternLayout
+                        pattern="[%-5level]; %d{yyyy-MM-dd HH:mm:ss.SSS} ; %c{1} ; %msg%n" />
+                <Policies>
+                        <TimeBasedTriggeringPolicy />
+                        <SizeBasedTriggeringPolicy size="50 MB" />
+                </Policies>
+                <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+
+        <!-- com.ngser  Main Application  RollingFile appender configuration   --> 
+        
+        <RollingFile name="App-Appender" fileName="${logPath}/${appName}_log.log"
+                filePattern="${logPath}/${appName}_log.%d{yyyy-MM-dd}-%i.log">
+                <PatternLayout
+                       pattern="[%-5level]; %d{yyyy-MM-dd HH:mm:ss.SSS} ; %c{1};%M() ; %msg%n" /> 
+                <Policies>
+                        <TimeBasedTriggeringPolicy />
+                        <SizeBasedTriggeringPolicy size="50 MB" />
+                </Policies>
+                <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+        
+</appenders>
